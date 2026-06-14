@@ -11,7 +11,7 @@ st.set_page_config(page_title="EduPro Analytics", layout="wide", page_icon="🎓
 def load_data():
     import os
     base = os.path.dirname(os.path.abspath(__file__))
-    xl = pd.read_excel(os.path.join(base, "EduPro_Online_Platform.xlsx"), sheet_name=None)
+    xl = pd.read_excel(os.path.join(base, "EduPro Online Platform.xlsx"), sheet_name=None)
     teachers = xl["Teachers"]
     courses = xl["Courses"]
     transactions = xl["Transactions"]
