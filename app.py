@@ -199,15 +199,15 @@ with col_h:
     st.subheader("🚻 Gender Distribution & Ratings")
     gender_data = (
         filtered.drop_duplicates("TeacherID")
-        .groupby(["Gender_x", "Expertise"])["TeacherRating"]
+        .groupby(["Gender", "Expertise"])["TeacherRating"]
         .mean()
         .reset_index()
-        .rename(columns={"Gender_x": "Gender"})
+        .rename(columns={"Gender": "Gender"})
     )
     fig_gender = px.box(
         filtered.drop_duplicates("TeacherID"),
-        x="Expertise", y="TeacherRating", color="Gender_x",
-        labels={"Gender_x": "Gender", "TeacherRating": "Teacher Rating"},
+        x="Expertise", y="TeacherRating", color="Gender",
+        labels={"Gender": "Gender", "TeacherRating": "Teacher Rating"},
         color_discrete_sequence=["#4F8EF7", "#E85D75"],
     )
     fig_gender.update_layout(height=420, margin=dict(t=20), xaxis_tickangle=-30)
